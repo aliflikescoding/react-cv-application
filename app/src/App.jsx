@@ -1,19 +1,25 @@
 import "./App.scss";
-import Name from "./components/Name";
+import HeaderInput from "./components/HeaderInput";
 import { useState } from "react";
 
 function App() {
-  const [value, setValue] = useState("");
+  const [titleValue, setTitleValue] = useState("");
+  const [linkValue, setLinkValue] = useState("");
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleTitleChange = (e) => {
+    setTitleValue(e.target.value);
+  };
+
+  const handleLinkChange = (e) => {
+    setLinkValue(e.target.value);
   };
 
   return (
     <>
-      <Name valueInput={value} onChangeFunction={handleChange} />
-      <Name valueInput={value} onChangeFunction={handleChange} />
-      <h1>this is the input text: {value}</h1>
+      < HeaderInput TitleInput={titleValue} onChangeTitle={handleTitleChange} linkInput={linkValue} onChangeLink={handleLinkChange}/>
+
+      <h1>this is title: {titleValue}</h1>
+      <h1>this is link: {linkValue}</h1>
     </>
   );
 }
