@@ -1,7 +1,7 @@
 import "./HeaderInput.scss";
 import "../sass/fonts.scss";
 
-function HeaderInput({ TitleInput, onChangeTitle, linkInput, onChangeLink }) {
+function HeaderInput({ TitleInput, onChangeTitle, linkInput, onChangeLink, onDeleteSection }) {
   return (
     <div className="input font-ubuntu">
       <span className="input-label">Title: </span>
@@ -18,6 +18,7 @@ function HeaderInput({ TitleInput, onChangeTitle, linkInput, onChangeLink }) {
         value={linkInput}
         onChange={onChangeLink}
       />
+      <button className="header-delete-button" onClick={onDeleteSection}>x</button>
     </div>
   );
 }
