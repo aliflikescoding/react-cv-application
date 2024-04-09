@@ -1,4 +1,4 @@
-export const initialUserInfo = {
+const initialUserInfo = {
   name: "John Doe",
   headerSection: {
     0: {
@@ -39,7 +39,7 @@ export const initialUserInfo = {
 
     1: {
       bodyId: 1,
-      bodyTitle: "interests and hobbies",
+      bodyTitle: "interests & hobbies",
       bodyPoints: {
         0: {
           pointId: 0,
@@ -56,3 +56,5 @@ export const initialUserInfo = {
     },
   },
 };
+
+export default initialUserInfo;
