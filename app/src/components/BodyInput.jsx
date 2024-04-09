@@ -1,7 +1,7 @@
 import "./BodyInput.scss";
 import "../sass/fonts.scss";
 
-function BodyInput({ TitleInput, onChangeTitle, contentInput, onChangeInput }) {
+function BodyInput({ TitleInput, onChangeTitle, contentPoint, onChangePoint }) {
   return (
     <div className="input font-ubuntu">
       <span className="input-label">Title: </span>
@@ -14,8 +14,8 @@ function BodyInput({ TitleInput, onChangeTitle, contentInput, onChangeInput }) {
       <span className="input-label">Content: </span>
       <textarea
         className="input-text"
-        value={contentInput}
-        onChange={onChangeInput}
+        value={contentPoint}
+        onChange={onChangePoint}
         cols="30"
         rows="10"
       ></textarea>
