@@ -1,30 +1,92 @@
 import "./App.scss";
-import BodyInput from "./components/BodyInput";
+import initialUserInfo from "./data";
 import { useState } from "react";
+// import BodyContent from "./components/BodyContent";
+import HeaderSection from "./components/HeaderSection";
+import BodySection from "./components/BodySection";
+import Name from "./components/Name";
 
 function App() {
-  const [titleValue, setTitleValue] = useState("");
-  const [contentValue, setcontentValue] = useState("");
+  const [newData, setNewData] = useState(initialUserInfo);
+  const [localKey, setLocalKey] = useState(3);
 
-  const handleTitleChange = (e) => {
-    setTitleValue(e.target.value);
-  };
+  function onClickNameChange(value) {
+    setNewData({
+      ...newData,
+      name: value,
+    });
+  }
 
-  const handleLinkChange = (e) => {
-    setcontentValue(e.target.value);
-  };
+  function onTitleChange(key, value) {
+    setNewData({
+      ...newData,
+      headerSection: {
+        ...newData.headerSection,
+        [key]: {
+          ...newData.headerSection[key],
+          headerTitle: value,
+        },
+      },
+    });
+  }
+
+  function onLinkChange(key, value) {
+    setNewData({
+      ...newData,
+      headerSection: {
+        ...newData.headerSection,
+        [key]: {
+          ...newData.headerSection[key],
+          headerLink: value,
+        },
+      },
+    });
+  }
+
+  function addNewSection() {
+    setNewData({
+      ...newData,
+      headerSection: {
+        ...newData.headerSection,
+        [localKey]: {
+          headerId: localKey,
+          headerTitle: "",
+          headerLink: "",
+        },
+      },
+    });
+    setLocalKey(localKey + 1);
+  }
+
+  function deleteSection(key) {
+    setNewData({
+      ...newData,
+      headerSection: Object.keys(newData.headerSection)
+        .filter((k) => k !== key)
+        .reduce((obj, k) => {
+          obj[k] = newData.headerSection[k];
+          return obj;
+        }, {}),
+    });
+  }
 
   return (
     <>
-      <BodyInput
-        TitleInput={titleValue}
-        onChangeTitle={handleTitleChange}
-        contentInput={contentValue}
-        onChangeInput={handleLinkChange}
+      <h1>hello</h1>
+      <Name
+        data={newData}
+        onChangeFunction={(event) => {
+          onClickNameChange(event.target.value);
+        }}
       />
-
-      <h1>this is title: {titleValue}</h1>
-      <h1>this is link: {contentValue}</h1>
+      <HeaderSection
+        data={newData}
+        onTitleChange={onTitleChange}
+        onLinkChange={onLinkChange}
+        addNewSection={addNewSection}
+        deleteSection={deleteSection}
+      />
+      <BodySection data={newData} />
     </>
   );
 }

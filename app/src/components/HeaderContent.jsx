@@ -2,65 +2,9 @@ import "./HeaderContent.scss";
 import "../sass/fonts.scss";
 import "./HeaderInput";
 import HeaderInput from "./HeaderInput";
-import { useState } from "react";
 
-function HeaderContent({ data }) {
-  const [newData, setNewData] = useState(data);
-  const [localKey, setLocalKey] = useState(3);
-  const headerSection = newData.headerSection;
-
-  function onTitleChange(key, value) {
-    setNewData({
-      ...newData,
-      headerSection: {
-        ...newData.headerSection,
-        [key]: {
-          ...newData.headerSection[key],
-          headerTitle: value,
-        },
-      },
-    });
-  }
-
-  function onLinkChange(key, value) {
-    setNewData({
-      ...newData,
-      headerSection: {
-        ...newData.headerSection,
-        [key]: {
-          ...newData.headerSection[key],
-          headerLink: value,
-        },
-      },
-    });
-  }
-
-  function addNewSection() {
-    setNewData({
-      ...newData,
-      headerSection: {
-        ...newData.headerSection,
-        [localKey]: {
-          headerId: localKey,
-          headerTitle: "",
-          headerLink: "",
-        },
-      },
-    });
-    setLocalKey(localKey + 1);
-  }
-
-  function deleteSection(key) {
-    setNewData({
-      ...newData,
-      headerSection: Object.keys(headerSection)
-        .filter((k) => k !== key)
-        .reduce((obj, k) => {
-          obj[k] = headerSection[k];
-          return obj;
-        }, {}),
-    });
-  }
+function HeaderContent({ data, onTitleChange, onLinkChange, addNewSection, deleteSection }) {
+  const headerSection = data.headerSection;
 
   return (
     <div className="header-content">

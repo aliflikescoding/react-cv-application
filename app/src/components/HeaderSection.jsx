@@ -3,7 +3,7 @@ import "../sass/fonts.scss";
 import { useState } from "react";
 import HeaderContent from "./HeaderContent";
 
-function HeaderSection({ data }) {
+function HeaderSection({ data, onTitleChange, onLinkChange, addNewSection, deleteSection }) {
   const [status, setStatus] = useState(false);
 
   function onClick() {
@@ -14,10 +14,21 @@ function HeaderSection({ data }) {
     <div className="input font-ubuntu">
       <div className="header-section">
         <p>Header Section</p>
-        <button onClick={onClick}>{status ? "open" : "closed"}</button>
+        <button onClick={onClick}>{status ? 'open' : 'closed'}</button>
       </div>
-      {status ? <HeaderContent data={data} /> : ""}
+      {status ? (
+        <HeaderContent
+          data={data}
+          onTitleChange={onTitleChange}
+          onLinkChange={onLinkChange}
+          addNewSection={addNewSection}
+          deleteSection={deleteSection}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 }
+
 export default HeaderSection;
