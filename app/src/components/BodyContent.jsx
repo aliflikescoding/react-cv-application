@@ -3,62 +3,9 @@ import "../sass/fonts.scss";
 import "./BodyInput";
 import BodyInput from "./BodyInput";
 import BodyTitle from "./BodyTitle";
-import { useState } from "react";
 
-function BodyContent({ data }) {
-  const [newData, setNewData] = useState(data);
-  const bodySection = newData.bodySection;
-
-  function onBodyTitleChange(key, value) {
-    setNewData({
-      ...newData,
-      bodySection: {
-        ...newData.bodySection,
-        [key]: {
-          ...newData.bodySection[key],
-          bodyTitle: value,
-        },
-      },
-    });
-  }
-
-  function onPointTitleChange(key, pointKey, value) {
-    setNewData({
-      ...newData,
-      bodySection: {
-        ...newData.bodySection,
-        [key]: {
-          ...newData.bodySection[key],
-          bodyPoints: {
-            ...newData.bodySection[key].bodyPoints,
-            [pointKey]: {
-              ...newData.bodySection[key].bodyPoints[pointKey],
-              pointTitle: value,
-            },
-          },
-        },
-      },
-    });
-  }
-
-  function onPointInputChange(key, pointKey, value) {
-    setNewData({
-      ...newData,
-      bodySection: {
-        ...newData.bodySection,
-        [key]: {
-          ...newData.bodySection[key],
-          bodyPoints: {
-            ...newData.bodySection[key].bodyPoints,
-            [pointKey]: {
-              ...newData.bodySection[key].bodyPoints[pointKey],
-              pointContent: value,
-            },
-          },
-        },
-      },
-    });
-  }
+function BodyContent({ data, onBodyTitleChange, onPointTitleChange, onPointInputChange }) {
+  const bodySection = data.bodySection;
 
   return (
     <div className="body-content">

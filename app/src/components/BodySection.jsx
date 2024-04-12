@@ -3,7 +3,12 @@ import "../sass/fonts.scss";
 import { useState } from "react";
 import BodyContent from "./BodyContent";
 
-function BodySection({ data }) {
+function BodySection({
+  data,
+  onBodyTitleChange,
+  onPointTitleChange,
+  onPointInputChange,
+}) {
   const [status, setStatus] = useState(false);
 
   function onClick() {
@@ -16,8 +21,18 @@ function BodySection({ data }) {
         <p>Body Section</p>
         <button onClick={onClick}>{status ? "open" : "closed"}</button>
       </div>
-      {status ? <BodyContent data={data} /> : ""}
+      {status ? (
+        <BodyContent
+          data={data}
+          onBodyTitleChange={onBodyTitleChange}
+          onPointTitleChange={onPointTitleChange}
+          onPointInputChange={onPointInputChange}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
+
 export default BodySection;

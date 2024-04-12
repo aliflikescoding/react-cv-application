@@ -1,7 +1,6 @@
 import "./App.scss";
 import initialUserInfo from "./data";
 import { useState } from "react";
-// import BodyContent from "./components/BodyContent";
 import HeaderSection from "./components/HeaderSection";
 import BodySection from "./components/BodySection";
 import Name from "./components/Name";
@@ -70,6 +69,58 @@ function App() {
     });
   }
 
+  function onBodyTitleChange(key, value) {
+    setNewData({
+      ...newData,
+      bodySection: {
+        ...newData.bodySection,
+        [key]: {
+          ...newData.bodySection[key],
+          bodyTitle: value,
+        },
+      },
+    });
+  }
+
+  function onPointTitleChange(key, pointKey, value) {
+    setNewData({
+      ...newData,
+      bodySection: {
+        ...newData.bodySection,
+        [key]: {
+          ...newData.bodySection[key],
+          bodyPoints: {
+            ...newData.bodySection[key].bodyPoints,
+            [pointKey]: {
+              ...newData.bodySection[key].bodyPoints[pointKey],
+              pointTitle: value,
+            },
+          },
+        },
+      },
+    });
+  }
+
+  function onPointInputChange(key, pointKey, value) {
+    setNewData({
+      ...newData,
+      bodySection: {
+        ...newData.bodySection,
+        [key]: {
+          ...newData.bodySection[key],
+          bodyPoints: {
+            ...newData.bodySection[key].bodyPoints,
+            [pointKey]: {
+              ...newData.bodySection[key].bodyPoints[pointKey],
+              pointContent: value,
+            },
+          },
+        },
+      },
+    });
+  }
+
+
   return (
     <>
       <h1>hello</h1>
@@ -86,7 +137,12 @@ function App() {
         addNewSection={addNewSection}
         deleteSection={deleteSection}
       />
-      <BodySection data={newData} />
+       <BodySection
+        data={newData}
+        onBodyTitleChange={onBodyTitleChange}
+        onPointTitleChange={onPointTitleChange}
+        onPointInputChange={onPointInputChange}
+      />
     </>
   );
 }
