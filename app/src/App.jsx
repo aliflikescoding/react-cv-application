@@ -8,6 +8,7 @@ import Name from "./components/Name";
 function App() {
   const [newData, setNewData] = useState(initialUserInfo);
   const [localKey, setLocalKey] = useState(3);
+  const [bodyKey, setBodyKey] = useState(2);
 
   function onClickNameChange(value) {
     setNewData({
@@ -120,6 +121,26 @@ function App() {
     });
   }
 
+  function addBodyNewSection() {
+    setNewData({
+      ...newData,
+      bodySection: {
+        ...newData.bodySection,
+        [bodyKey]: {
+          bodyId: bodyKey,
+          bodyTitle: "",
+          bodyPoints: {
+            0: {
+              pointId: 0,
+              pointTitle: "",
+              pointContent: "",
+            },
+          },
+        },
+      },
+    });
+    setBodyKey(bodyKey + 1);
+  }
 
   return (
     <>
@@ -137,11 +158,12 @@ function App() {
         addNewSection={addNewSection}
         deleteSection={deleteSection}
       />
-       <BodySection
+      <BodySection
         data={newData}
         onBodyTitleChange={onBodyTitleChange}
         onPointTitleChange={onPointTitleChange}
         onPointInputChange={onPointInputChange}
+        addSectionBody={addBodyNewSection}
       />
     </>
   );
