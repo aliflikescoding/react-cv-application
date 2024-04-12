@@ -8,7 +8,8 @@ function BodySection({
   onBodyTitleChange,
   onPointTitleChange,
   onPointInputChange,
-  addSectionBody
+  addSectionBody,
+  addPointSection
 }) {
   const [status, setStatus] = useState(false);
 
@@ -29,6 +30,7 @@ function BodySection({
           onPointTitleChange={onPointTitleChange}
           onPointInputChange={onPointInputChange}
           addSectionBody={addSectionBody}
+          addPointSection={addPointSection}
         />
       ) : (
         ""
