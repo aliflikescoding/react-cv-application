@@ -4,7 +4,15 @@ import "./BodyInput";
 import BodyInput from "./BodyInput";
 import BodyTitle from "./BodyTitle";
 
-function BodyContent({ data, onBodyTitleChange, onPointTitleChange, onPointInputChange, addSectionBody, addPointSection }) {
+function BodyContent({
+  data,
+  onBodyTitleChange,
+  onPointTitleChange,
+  onPointInputChange,
+  addSectionBody,
+  addPointSection,
+  onDeleteBodySection,
+}) {
   const bodySection = data.bodySection;
 
   return (
@@ -13,6 +21,7 @@ function BodyContent({ data, onBodyTitleChange, onPointTitleChange, onPointInput
         const section = bodySection[key];
         return (
           <div key={section.bodyId}>
+            <button onClick={() => onDeleteBodySection(key)}>x</button>
             <BodyTitle
               bodyTitle={section.bodyTitle}
               onChangeBodyTitle={(event) => {

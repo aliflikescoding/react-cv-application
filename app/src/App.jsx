@@ -71,6 +71,15 @@ function App() {
     });
   }
 
+  function deleteBodySection(key) {
+    const updatedBodySection = { ...newData.bodySection };
+    delete updatedBodySection[key];
+    setNewData({
+      ...newData,
+      bodySection: updatedBodySection,
+    });
+  }
+
   function onBodyTitleChange(key, value) {
     setNewData({
       ...newData,
@@ -187,6 +196,7 @@ function App() {
         onPointInputChange={onPointInputChange}
         addSectionBody={addBodyNewSection}
         addPointSection={addNewPoint}
+        onDeleteBodySection={deleteBodySection}
       />
     </>
   );
