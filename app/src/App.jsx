@@ -173,6 +173,24 @@ function App() {
     setBodyKey(bodyKey + 1);
   }
 
+  function deletePoint(sectionKey, pointKey) {
+    setNewData({
+      ...newData,
+      bodySection: {
+        ...newData.bodySection,
+        [sectionKey]: {
+          ...newData.bodySection[sectionKey],
+          bodyPoints: Object.keys(newData.bodySection[sectionKey].bodyPoints)
+            .filter((k) => k !== pointKey)
+            .reduce((obj, k) => {
+              obj[k] = newData.bodySection[sectionKey].bodyPoints[k];
+              return obj;
+            }, {}),
+        },
+      },
+    });
+  }
+
   return (
     <>
       <h1>hello</h1>
@@ -197,6 +215,7 @@ function App() {
         addSectionBody={addBodyNewSection}
         addPointSection={addNewPoint}
         onDeleteBodySection={deleteBodySection}
+        onDeletePoint={deletePoint}
       />
     </>
   );

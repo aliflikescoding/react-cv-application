@@ -12,6 +12,7 @@ function BodyContent({
   addSectionBody,
   addPointSection,
   onDeleteBodySection,
+  onDeletePoint
 }) {
   const bodySection = data.bodySection;
 
@@ -21,7 +22,6 @@ function BodyContent({
         const section = bodySection[key];
         return (
           <div key={section.bodyId}>
-            <button onClick={() => onDeleteBodySection(key)}>x</button>
             <BodyTitle
               bodyTitle={section.bodyTitle}
               onChangeBodyTitle={(event) => {
@@ -31,20 +31,23 @@ function BodyContent({
             {Object.keys(section.bodyPoints).map((pointKey) => {
               const points = section.bodyPoints[pointKey];
               return (
-                <BodyInput
-                  key={points.pointId}
-                  TitleInput={points.pointTitle}
-                  onChangeTitle={(event) => {
-                    onPointTitleChange(key, pointKey, event.target.value);
-                  }}
-                  contentPoint={points.pointContent}
-                  onChangePoint={(event) => {
-                    onPointInputChange(key, pointKey, event.target.value);
-                  }}
-                />
+                <div key={points.pointId}>
+                  <BodyInput
+                    TitleInput={points.pointTitle}
+                    onChangeTitle={(event) => {
+                      onPointTitleChange(key, pointKey, event.target.value);
+                    }}
+                    contentPoint={points.pointContent}
+                    onChangePoint={(event) => {
+                      onPointInputChange(key, pointKey, event.target.value);
+                    }}
+                  />
+                  <button onClick={() => onDeletePoint(key, pointKey)}>Delete Point</button>
+                </div>
               );
             })}
             <button onClick={() => addPointSection(key)}>+ Add Point</button>
+            <button onClick={() => onDeleteBodySection(key)}>Delete Section</button>
           </div>
         );
       })}
