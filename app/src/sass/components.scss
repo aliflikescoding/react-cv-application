@@ -1,0 +1,18 @@
+@import "./variables.scss";
+
+.buttonEmpty {
+  border: none;
+  background: none;
+  display: inline-block;
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+
+  &-arrow {
+    color: $primary;
+  }
+}
+
+.buttonEmpty-arrow:hover {
+  color: $accent;
+}
