@@ -2,15 +2,15 @@ import "./Name.scss";
 import "../sass/fonts.scss";
 
 function Name({ data, onChangeFunction }) {
-
   return (
-    <div className="input font-ubuntu">
-      <span className="input-label">Name: </span>
+    <div className="name-component">
+      <span className="name-label">Name </span>
       <input
-        className="input-text"
+        className="name-input"
         type="text"
         value={data.name}
-         onChange={onChangeFunction}
+        onChange={onChangeFunction}
+        placeholder="John Doe"
       />
     </div>
   );
