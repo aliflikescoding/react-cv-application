@@ -1,1 +1,9 @@
+@import "./sass/variables.scss";
 
+.side-area {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  color: $text;
+  background-color: $background;
+}

@@ -142,8 +142,8 @@ function App() {
             ...newData.bodySection[sectionKey].bodyPoints,
             [localPointKey]: {
               pointId: localPointKey,
-              pointTitle: '',
-              pointContent: '',
+              pointTitle: "",
+              pointContent: "",
             },
           },
         },
@@ -192,8 +192,8 @@ function App() {
   }
 
   return (
-    <>
-      <h1>hello</h1>
+    <div className="font-ubuntu">
+      <div className="side-area">
       <Name
         data={newData}
         onChangeFunction={(event) => {
@@ -217,7 +217,9 @@ function App() {
         onDeleteBodySection={deleteBodySection}
         onDeletePoint={deletePoint}
       />
-    </>
+      </div>
+     
+    </div>
   );
 }
 
