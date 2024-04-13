@@ -1,4 +1,4 @@
-import "./HeaderInput.scss";
+import "./BodySection.scss";
 import "../sass/fonts.scss";
 import { useState } from "react";
 import BodyContent from "./BodyContent";
@@ -11,7 +11,7 @@ function BodySection({
   addSectionBody,
   addPointSection,
   onDeleteBodySection,
-  onDeletePoint
+  onDeletePoint,
 }) {
   const [status, setStatus] = useState(false);
 
@@ -24,10 +24,19 @@ function BodySection({
   }
 
   return (
-    <div className="input font-ubuntu">
-      <div className="header-section">
-        <p>Body Section</p>
-        <button onClick={onClick}>{status ? "open" : "closed"}</button>
+    <div className="bodySection-component font-ubuntu">
+      <div className="bodySection-section">
+        <p className="bodySection-text">Body Section</p>
+        <button
+          className="bodySection-button buttonEmpty buttonEmpty-arrow"
+          onClick={onClick}
+        >
+          {status ? (
+            <i className="bi bi-caret-up-fill"></i>
+          ) : (
+            <i className="bi bi-caret-down-fill"></i>
+          )}
+        </button>
       </div>
       {status ? (
         <BodyContent
