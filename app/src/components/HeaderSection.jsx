@@ -1,4 +1,4 @@
-import "./HeaderInput.scss";
+import "./HeaderSection.scss";
 import "../sass/fonts.scss";
 import { useState } from "react";
 import HeaderContent from "./HeaderContent";
