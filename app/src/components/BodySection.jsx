@@ -24,7 +24,7 @@ function BodySection({
   }
 
   return (
-    <div className="bodySection-component font-ubuntu">
+    <div className="bodySection bodySection-component font-ubuntu">
       <div className="bodySection-section">
         <p className="bodySection-text">Body Section</p>
         <button

@@ -1,0 +1,15 @@
+@import "../sass/components.scss";
+@import "../sass/variables.scss";
+
+.header {
+  &-section {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+
+  &-text {
+    font-size: 2rem;
+    font-weight: map-get($font-weights, bold);
+  }
+}
