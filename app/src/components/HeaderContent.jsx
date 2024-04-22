@@ -1,9 +1,16 @@
 import "./HeaderContent.scss";
+import "../sass/components.scss";
 import "../sass/fonts.scss";
 import "./HeaderInput";
 import HeaderInput from "./HeaderInput";
 
-function HeaderContent({ data, onTitleChange, onLinkChange, addNewSection, deleteSection }) {
+function HeaderContent({
+  data,
+  onTitleChange,
+  onLinkChange,
+  addNewSection,
+  deleteSection,
+}) {
   const headerSection = data.headerSection;
 
   return (
@@ -25,7 +32,9 @@ function HeaderContent({ data, onTitleChange, onLinkChange, addNewSection, delet
           />
         );
       })}
-      <button onClick={addNewSection}>+ Add Section</button>
+      <button className="button button-primary" onClick={addNewSection}>
+        + Add Section
+      </button>
     </div>
   );
 }
