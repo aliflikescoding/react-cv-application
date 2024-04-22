@@ -11,8 +11,18 @@
   &-arrow {
     color: $primary;
   }
+
+  &-cross {
+    font-size: 1.5rem;
+    color: $error;
+    font-weight: map-get($font-weights, bold);
+  }
 }
 
 .buttonEmpty-arrow:hover {
   color: $accent;
+}
+
+.buttonEmpty-cross:hover {
+  opacity: 75%;
 }
