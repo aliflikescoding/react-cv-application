@@ -26,3 +26,22 @@
 .buttonEmpty-cross:hover {
   opacity: 75%;
 }
+
+.button {
+  border: none;
+  cursor: pointer;
+  font-size: 1.75rem;
+  font-weight: map-get($font-weights, bold);
+  padding: 10px 15px;
+  transition: all 0.25s ease-in-out;
+  border-radius: 15px;
+
+  &-primary {
+    background-color: $primary;
+    color: $background;
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+}
