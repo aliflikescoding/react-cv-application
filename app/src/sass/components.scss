@@ -34,7 +34,7 @@
   font-weight: map-get($font-weights, bold);
   padding: 10px 15px;
   transition: all 0.25s ease-in-out;
-  border-radius: 15px;
+  border-radius: 50px;
 
   &-primary {
     background-color: $primary;
