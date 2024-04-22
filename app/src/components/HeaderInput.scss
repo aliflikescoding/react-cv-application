@@ -1,6 +1,7 @@
 @import "./../sass/variables.scss";
 
 .input {
+  background-color: darken($background, 1%);
   position: relative;
   border: 1px solid $text;
   padding: 15px 10px;
