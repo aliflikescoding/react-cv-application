@@ -4,6 +4,7 @@ import { useState } from "react";
 import HeaderSection from "./components/HeaderSection";
 import BodySection from "./components/BodySection";
 import Name from "./components/Name";
+import CvPaper from "./components/CvPaper";
 
 function App() {
   const [newData, setNewData] = useState(initialUserInfo);
@@ -218,7 +219,7 @@ function App() {
         onDeletePoint={deletePoint}
       />
       </div>
-     
+      <CvPaper data={newData} />
     </div>
   );
 }
