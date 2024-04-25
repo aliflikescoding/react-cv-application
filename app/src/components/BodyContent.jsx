@@ -1,5 +1,6 @@
 import "./BodyContent.scss";
 import "../sass/fonts.scss";
+import "../sass/components.scss";
 import "./BodyInput";
 import BodyInput from "./BodyInput";
 import BodyTitle from "./BodyTitle";
@@ -12,7 +13,7 @@ function BodyContent({
   addSectionBody,
   addPointSection,
   onDeleteBodySection,
-  onDeletePoint
+  onDeletePoint,
 }) {
   const bodySection = data.bodySection;
 
@@ -21,7 +22,7 @@ function BodyContent({
       {Object.keys(bodySection).map((key) => {
         const section = bodySection[key];
         return (
-          <div key={section.bodyId}>
+          <div className="body-part" key={section.bodyId}>
             <BodyTitle
               bodyTitle={section.bodyTitle}
               onChangeBodyTitle={(event) => {
@@ -31,7 +32,7 @@ function BodyContent({
             {Object.keys(section.bodyPoints).map((pointKey) => {
               const points = section.bodyPoints[pointKey];
               return (
-                <div key={points.pointId}>
+                <div className="body-card" key={points.pointId}>
                   <BodyInput
                     TitleInput={points.pointTitle}
                     onChangeTitle={(event) => {
@@ -42,16 +43,36 @@ function BodyContent({
                       onPointInputChange(key, pointKey, event.target.value);
                     }}
                   />
-                  <button onClick={() => onDeletePoint(key, pointKey)}>Delete Point</button>
+                  <button
+                    className="body-delete-button buttonEmpty buttonEmpty-cross"
+                    onClick={() => onDeletePoint(key, pointKey)}
+                  >
+                    X
+                  </button>
                 </div>
               );
             })}
-            <button onClick={() => addPointSection(key)}>+ Add Point</button>
-            <button onClick={() => onDeleteBodySection(key)}>Delete Section</button>
+            <button
+              className="button button-primary button-medium"
+              onClick={() => addPointSection(key)}
+            >
+              + Add Point
+            </button>
+            <button
+              className="body-delete-button buttonEmpty buttonEmpty-cross"
+              onClick={() => onDeleteBodySection(key)}
+            >
+              X
+            </button>
           </div>
         );
       })}
-      <button onClick={addSectionBody}>+ Add Section</button>
+      <button
+        className="button button-primary button-medium"
+        onClick={addSectionBody}
+      >
+        + Add Section
+      </button>
     </div>
   );
 }

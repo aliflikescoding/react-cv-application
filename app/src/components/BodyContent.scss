@@ -1,19 +1,35 @@
 @import "./../sass/variables.scss";
 
-.input {
-  border: 1px solid $text;
-  padding: 15px 10px;
-  border-radius: 10px;
-
+.body-content {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  &-label {
-    font-size: 1.5rem;
+  & > * {
+    margin: 15px 0;
   }
+}
 
-  &-text {
-    margin-left: 15px;
-    font-size: 1.2rem;
-  }
+.body-part {
+  position: relative;
+  padding: 45px;
+  border: 1px solid $text;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-card {
+  position: relative;
+  margin: 15px 0;
+}
+
+.body-delete-button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }
