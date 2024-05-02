@@ -1,5 +1,10 @@
 @import "./sass/variables.scss";
 
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .side-area {
   display: flex;
   flex-direction: column;

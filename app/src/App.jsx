@@ -5,6 +5,7 @@ import HeaderSection from "./components/HeaderSection";
 import BodySection from "./components/BodySection";
 import Name from "./components/Name";
 import CvPaper from "./components/CvPaper";
+import Header from "./components/Header";
 
 function App() {
   const [newData, setNewData] = useState(initialUserInfo);
@@ -193,34 +194,37 @@ function App() {
   }
 
   return (
-    <div className="font-ubuntu">
-      <div className="side-area">
-      <Name
-        data={newData}
-        onChangeFunction={(event) => {
-          onClickNameChange(event.target.value);
-        }}
-      />
-      <HeaderSection
-        data={newData}
-        onTitleChange={onTitleChange}
-        onLinkChange={onLinkChange}
-        addNewSection={addNewSection}
-        deleteSection={deleteSection}
-      />
-      <BodySection
-        data={newData}
-        onBodyTitleChange={onBodyTitleChange}
-        onPointTitleChange={onPointTitleChange}
-        onPointInputChange={onPointInputChange}
-        addSectionBody={addBodyNewSection}
-        addPointSection={addNewPoint}
-        onDeleteBodySection={deleteBodySection}
-        onDeletePoint={deletePoint}
-      />
+    <>
+      <Header />
+      <div className="container font-ubuntu">
+        <div className="side-area">
+          <Name
+            data={newData}
+            onChangeFunction={(event) => {
+              onClickNameChange(event.target.value);
+            }}
+          />
+          <HeaderSection
+            data={newData}
+            onTitleChange={onTitleChange}
+            onLinkChange={onLinkChange}
+            addNewSection={addNewSection}
+            deleteSection={deleteSection}
+          />
+          <BodySection
+            data={newData}
+            onBodyTitleChange={onBodyTitleChange}
+            onPointTitleChange={onPointTitleChange}
+            onPointInputChange={onPointInputChange}
+            addSectionBody={addBodyNewSection}
+            addPointSection={addNewPoint}
+            onDeleteBodySection={deleteBodySection}
+            onDeletePoint={deletePoint}
+          />
+        </div>
+        <CvPaper data={newData} />
       </div>
-      <CvPaper data={newData} />
-    </div>
+    </>
   );
 }
 
