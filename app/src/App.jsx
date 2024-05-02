@@ -6,6 +6,7 @@ import BodySection from "./components/BodySection";
 import Name from "./components/Name";
 import CvPaper from "./components/CvPaper";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [newData, setNewData] = useState(initialUserInfo);
@@ -224,6 +225,7 @@ function App() {
         </div>
         <CvPaper data={newData} />
       </div>
+      <Footer />
     </>
   );
 }
