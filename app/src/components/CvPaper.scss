@@ -1,15 +1,51 @@
 @import "../sass/variables.scss";
 
 .cv-paper {
+  padding: 15px 45px;
+  position: relative;
   border: 1px solid $text;
   width: 210mm;
   height: 297mm;
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    text-align: center;
+  }
+
+  a {
+    color: $link;
+
+    &:visited {
+      color: $link;
+    }
+  }
 }
 
-.cv-paper-header-title {
-  text-align: center;
+.cv-paper-body-section-title {
+  position: relative;
+  padding-bottom: 23px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100%; /* Adjust the width of the underline */
+    height: 1px; /* Adjust the height (thickness) of the underline */
+    background-color: $text; /* Set the color of the underline */
+  }
 }
 
 .cv-paper-header-links {
-  display: flex;
+  text-align: center;
+
+  p {
+    display: inline-block;
+  }
+}
+
+.cv-paper-body-section-points {
+  text-align: left;
 }
